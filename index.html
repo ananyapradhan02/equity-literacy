@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>equity literacy</title>
+  <meta name="description" content="Short interactive lessons and two calculators for startup employees who hold options, RSUs or ESOPs, in the US and India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="app.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="wordmark" href="#/">equity <em>literacy</em></a>
+      <nav>
+        <a href="#/lesson-1">lessons</a>
+        <a href="#/cliff">calculators</a>
+        <button class="pill theme-toggle" id="theme" type="button" aria-label="toggle theme">theme</button>
+      </nav>
+    </header>
+
+    <main id="main">
+
+    <!-- home -->
+    <section class="view" data-view="home">
+      <div class="section enter">
+        <h1>your equity, <em>read plainly</em></h1>
+        <p class="dek">short lessons on what your options, RSUs or ESOPs are actually worth, for people at startups in the US and India. read one lesson, run one calculator, and walk into your next offer conversation knowing the questions to ask.</p>
+      </div>
+      <div class="section">
+        <p class="label">lessons <span class="count" id="progress-count">0/3</span></p>
+        <div class="cards">
+          <a class="card" href="#/lesson-1" data-lesson-card="1">
+            <p class="mono muted">lesson 01</p>
+            <h3>options basics: iso, nso, rsu, esop</h3>
+            <p class="caption">what you own, when it is taxed, in dollars and rupees.</p>
+            <span class="stamp ok read-stamp" hidden>read</span>
+          </a>
+          <a class="card" href="#/lesson-2" data-lesson-card="2">
+            <p class="mono muted">lesson 02</p>
+            <h3>vesting, cliffs and triggers</h3>
+            <p class="caption">when shares become yours, and what happens if the company is sold.</p>
+            <span class="stamp ok read-stamp" hidden>read</span>
+          </a>
+          <a class="card" href="#/lesson-3" data-lesson-card="3">
+            <p class="mono muted">lesson 03</p>
+            <h3>409a versus preferred</h3>
+            <p class="caption">why the investors' price is not your price.</p>
+            <span class="stamp ok read-stamp" hidden>read</span>
+          </a>
+        </div>
+      </div>
+      <div class="section">
+        <p class="label">calculators</p>
+        <div class="cards">
+          <a class="card" href="#/cliff">
+            <h3>cliff date calculator</h3>
+            <p class="caption">your cliff date, a full vesting table, and what is vested today.</p>
+          </a>
+          <a class="card" href="#/dilution">
+            <h3>dilution calculator</h3>
+            <p class="caption">your ownership before and after a round, and what the stake is worth at the new price.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- lesson 1 -->
+    <article class="view lesson" data-view="lesson-1" data-lesson="1" hidden>
+      <div class="section">
+        <p class="mono muted">lesson 01 of 03</p>
+        <h1>options basics: <em>what you hold</em></h1>
+        <p class="dek">four kinds of equity show up in startup offers. they differ in who can get them, what you pay, and when the tax bill arrives.</p>
+      </div>
+      <div class="section prose">
+        <h2>the four kinds</h2>
+        <p><strong>an option</strong> is the right to buy a share later at a fixed price, the strike price, set on the day of the grant. you pay nothing until you exercise. if the share is worth more than the strike, the gap is called the spread.</p>
+        <p><strong>iso</strong> (incentive stock option, US) is an option only employees can get. there is no regular income tax when you exercise, though the spread counts toward the alternative minimum tax. if you hold the shares two years from grant and one year from exercise, the whole gain is taxed as long-term capital gain. only options worth up to one hundred thousand dollars, measured at grant, can first become exercisable in any calendar year; anything above that is treated as an nso. you usually have to exercise within three months of leaving to keep iso treatment.</p>
+        <p><strong>nso</strong> (non-qualified stock option, US) can go to employees, advisors and contractors. the spread at exercise is taxed as ordinary income.</p>
+        <p><strong>rsu</strong> (restricted stock unit) is a promise of shares with no strike price. you pay nothing, and the full value is taxed as ordinary income when the units vest and are delivered.</p>
+        <p><strong>esop</strong> in India is the usual word for an option under an employee stock option scheme. when you exercise, the gap between fair market value and your exercise price is a perquisite, taxed as salary at your slab rate. when you later sell, the gain above that fair market value is a capital gain. employees of eligible startups can defer the tax on exercise until the earliest of forty-eight months from the end of the assessment year, leaving the company, or selling.</p>
+      </div>
+      <div class="section">
+        <p class="label">worked example, us</p>
+        <p class="caption">ten thousand options, strike one dollar, share worth five dollars on the day you exercise, later sold at eight dollars.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>type</th><th>at exercise or vest</th><th>at sale</th></tr></thead>
+            <tbody>
+              <tr><td>nso</td><td class="data">$40,000 ordinary income</td><td class="data">$30,000 capital gain</td></tr>
+              <tr><td>iso, held long enough</td><td class="data">$0 regular tax, $40,000 amt adjustment</td><td class="data">$70,000 long-term gain</td></tr>
+              <tr><td>rsu (no strike)</td><td class="data">$50,000 ordinary income</td><td class="data">$30,000 capital gain</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="label spaced">worked example, india</p>
+        <p class="caption">one thousand esops, exercise price ten rupees, fair market value four hundred rupees on exercise, later sold at nine hundred rupees.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>step</th><th>math</th><th>amount</th></tr></thead>
+            <tbody>
+              <tr><td>cost to exercise</td><td class="data">1,000 × ₹10</td><td class="data">₹10,000</td></tr>
+              <tr><td>perquisite, taxed as salary</td><td class="data">1,000 × (₹400 − ₹10)</td><td class="data">₹3,90,000</td></tr>
+              <tr><td>capital gain on sale</td><td class="data">1,000 × (₹900 − ₹400)</td><td class="data">₹5,00,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="section recall">
+        <p class="label">recall</p>
+        <div class="q">
+          <p class="prose">you get sixty thousand isos at a ten dollar strike, vesting evenly over four years. how many of each year's options are treated as nsos?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. each year fifteen thousand options become exercisable, worth one hundred and fifty thousand dollars at the grant price. only one hundred thousand dollars of that fits under the iso limit, so five thousand options a year are treated as nsos.</p></div>
+        </div>
+        <div class="q">
+          <p class="prose">in India, when is an esop first taxed: at grant, at vesting, at exercise or at sale?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. grant and vesting give you only a right. the first tax point is exercise, when the gap between fair market value and your exercise price becomes a salary perquisite. sale is the second tax point, for the gain above that fair market value. eligible startup employees can defer the first payment.</p></div>
+        </div>
+      </div>
+      <div class="section lesson-end">
+        <p class="label">sources</p>
+        <ol class="sources">
+          <li><a href="https://www.irs.gov/taxtopics/tc427" target="_blank" rel="noopener">IRS, topic 427: stock options</a></li>
+          <li><a href="https://www.law.cornell.edu/uscode/text/26/422" target="_blank" rel="noopener">26 US code § 422, incentive stock options (the $100,000 limit is 422(d))</a></li>
+          <li><a href="https://www.irs.gov/publications/p525" target="_blank" rel="noopener">IRS publication 525, taxable and nontaxable income (restricted stock units)</a></li>
+          <li><a href="https://www.incometaxindia.gov.in/w/taxation-of-employee-stock-option-plan-esop-" target="_blank" rel="noopener">income tax department of India, taxation of esops (section 17(2)(vi), rule 3(8), section 192(1C) deferral)</a></li>
+          <li><a href="https://treelife.in/taxation/the-income-tax-act-2025-is-live/" target="_blank" rel="noopener">treelife, the income-tax act 2025 is live (renumbers these sections from 01.04.26; treatment unchanged)</a></li>
+        </ol>
+        <p class="caption fine">education, not tax or legal advice.</p>
+        <div class="page-end">
+          <button class="pill mark-read" type="button">mark as read</button>
+          <a class="pill primary" href="#/lesson-2">next lesson →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- lesson 2 -->
+    <article class="view lesson" data-view="lesson-2" data-lesson="2" hidden>
+      <div class="section">
+        <p class="mono muted">lesson 02 of 03</p>
+        <h1>vesting, cliffs <em>and triggers</em></h1>
+        <p class="dek">a grant is a promise that becomes yours in pieces. the schedule decides when, and the triggers decide what happens if the company is sold.</p>
+      </div>
+      <div class="section prose">
+        <h2>the pieces</h2>
+        <p><strong>vesting</strong> is the schedule on which your grant becomes yours. the common one is four years, monthly.</p>
+        <p><strong>the cliff</strong> is a waiting period at the start. nothing vests until it passes, then everything that would have vested so far arrives at once. a one-year cliff is common in the US. in India it is close to the rule: the companies share capital rules require at least one year between grant and vesting.</p>
+        <p><strong>single trigger acceleration</strong> means some unvested shares vest when the company is acquired. <strong>double trigger</strong> needs two events: the acquisition, and then you losing your job without cause (or quitting for good reason) within a set window, often twelve months. double trigger is far more common, because buyers want the team to stay.</p>
+        <p><strong>early exercise and 83(b)</strong>: some US companies let you exercise before vesting. you then own restricted stock, and you can file an 83(b) election with the IRS within thirty days to be taxed on today's spread, often zero, instead of on the value as it vests. the thirty days do not stretch.</p>
+      </div>
+      <div class="section">
+        <p class="label">worked example</p>
+        <p class="caption">forty-eight thousand options, granted 01.04.26, four years monthly, one-year cliff.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>moment</th><th>date</th><th>vested</th></tr></thead>
+            <tbody>
+              <tr><td>leave before the cliff</td><td class="data">31.03.27</td><td class="data">0</td></tr>
+              <tr><td>cliff</td><td class="data">01.04.27</td><td class="data">12,000</td></tr>
+              <tr><td>each month after</td><td class="data">01.05.27 onward</td><td class="data">+1,000</td></tr>
+              <tr><td>acquired at month 20</td><td class="data">01.12.27</td><td class="data">20,000</td></tr>
+              <tr><td>let go at month 22, double trigger, 50% of unvested</td><td class="data">01.02.28</td><td class="data">22,000 + 13,000 = 35,000</td></tr>
+              <tr><td>fully vested</td><td class="data">01.04.30</td><td class="data">48,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption"><a href="#/cliff">run your own schedule in the cliff calculator →</a></p>
+      </div>
+      <div class="section recall">
+        <p class="label">recall</p>
+        <div class="q">
+          <p class="prose">your grant has a one-year cliff and you leave after eleven months. what have you vested?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. nothing. the cliff is all or nothing: the first year's shares arrive only on the cliff date. if you are close to it, the date is worth knowing before you resign.</p></div>
+        </div>
+        <div class="q">
+          <p class="prose">the company is acquired and you keep your job. with double trigger acceleration, does anything speed up?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. no. only the first trigger has fired. acceleration waits for the second one, a termination without cause or a good-reason exit inside the window the plan sets.</p></div>
+        </div>
+      </div>
+      <div class="section lesson-end">
+        <p class="label">sources</p>
+        <ol class="sources">
+          <li><a href="https://www.law.cornell.edu/uscode/text/26/83" target="_blank" rel="noopener">26 US code § 83, property transferred in connection with services (83(b) election)</a></li>
+          <li><a href="https://www.law.cornell.edu/cfr/text/26/1.83-2" target="_blank" rel="noopener">26 CFR § 1.83-2, how and when to make the election (thirty days)</a></li>
+          <li><a href="https://www.irs.gov/pub/irs-pdf/f15620.pdf" target="_blank" rel="noopener">IRS form 15620, section 83(b) election</a></li>
+          <li><a href="https://ca2013.com/rule/4-12-share-capital-and-debentures/" target="_blank" rel="noopener">companies (share capital and debentures) rules 2014, rule 12(6): minimum one year vesting</a></li>
+        </ol>
+        <p class="caption fine">education, not tax or legal advice.</p>
+        <div class="page-end">
+          <button class="pill mark-read" type="button">mark as read</button>
+          <a class="pill primary" href="#/lesson-3">next lesson →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- lesson 3 -->
+    <article class="view lesson" data-view="lesson-3" data-lesson="3" hidden>
+      <div class="section">
+        <p class="mono muted">lesson 03 of 03</p>
+        <h1>409a versus <em>preferred</em></h1>
+        <p class="dek">investors buy one kind of share and employees get another. the two prices are different on purpose, and the headline number belongs to the investors.</p>
+      </div>
+      <div class="section prose">
+        <h2>two prices, two kinds of share</h2>
+        <p><strong>preferred</strong> shares are what investors buy in a round. they come with rights you do not have, above all a liquidation preference: in a sale they get their money back before common holders see anything.</p>
+        <p><strong>common</strong> shares are what your options turn into. because they sit behind the preference, they are worth less than preferred.</p>
+        <p><strong>the 409a valuation</strong> is the US appraisal of common stock that sets your strike price. a strike below fair market value can trigger penalty tax under section 409A, so companies use a safe harbour method, most often an independent appraisal no older than twelve months. that is why it is refreshed after each round.</p>
+        <p><strong>in India</strong> the fair market value of unlisted shares for esop tax comes from a category one merchant banker under rule 3(8). many Indian startups set the exercise price at the face value of the share, often ten rupees or one rupee, which makes the perquisite at exercise nearly the whole fair market value.</p>
+      </div>
+      <div class="section">
+        <p class="label">worked example: the headline price versus your payout</p>
+        <p class="caption">ten million shares fully diluted. investors put in ten million dollars for two and a half million preferred shares, at four dollars each, with a one times non-participating preference. the company later sells for fifteen million dollars.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>line</th><th>math</th><th>amount</th></tr></thead>
+            <tbody>
+              <tr><td>headline price per share</td><td class="data">$15,000,000 ÷ 10,000,000</td><td class="data">$1.50</td></tr>
+              <tr><td>investors, converted to common</td><td class="data">25% × $15,000,000</td><td class="data">$3,750,000</td></tr>
+              <tr><td>investors, taking the preference</td><td class="data">1 × $10,000,000</td><td class="data">$10,000,000</td></tr>
+              <tr><td>left for common</td><td class="data">$15,000,000 − $10,000,000</td><td class="data">$5,000,000</td></tr>
+              <tr><td>per common share</td><td class="data">$5,000,000 ÷ 7,500,000</td><td class="data">$0.67</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">investors take the larger of the two, the preference. your share gets sixty-seven cents, not a dollar fifty, and not the four dollars they paid.</p>
+      </div>
+      <div class="section recall">
+        <p class="label">recall</p>
+        <div class="q">
+          <p class="prose">a recruiter says your twenty thousand options are "worth eighty thousand dollars at the last round price of four dollars". what does that number leave out?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. four dollars is the preferred price, which buys a liquidation preference you do not get. your options also cost the strike to exercise. a fairer number is (a realistic exit price per common share minus your strike) times twenty thousand, and the 409a is a better floor than the preferred price.</p></div>
+        </div>
+        <div class="q">
+          <p class="prose">why does a US company refresh its 409a after raising a round?</p>
+          <button class="pill reveal" type="button" aria-expanded="false">show the reasoning</button>
+          <div class="why prose" hidden><p>here's the reasoning. a round is new information about value, so the old appraisal may no longer be reasonable. granting options below fair market value risks 409A penalty tax for the employee, and the safe harbour only holds for an appraisal no older than twelve months with nothing material changed since.</p></div>
+        </div>
+      </div>
+      <div class="section lesson-end">
+        <p class="label">sources</p>
+        <ol class="sources">
+          <li><a href="https://www.law.cornell.edu/uscode/text/26/409A" target="_blank" rel="noopener">26 US code § 409A, nonqualified deferred compensation</a></li>
+          <li><a href="https://www.law.cornell.edu/cfr/text/26/1.409A-1" target="_blank" rel="noopener">26 CFR § 1.409A-1(b)(5)(iv)(B), safe harbour valuation methods</a></li>
+          <li><a href="https://www.irs.gov/taxtopics/tc427" target="_blank" rel="noopener">IRS, topic 427: stock options</a></li>
+          <li><a href="https://www.incometaxindia.gov.in/w/taxation-of-employee-stock-option-plan-esop-" target="_blank" rel="noopener">income tax department of India, taxation of esops (rule 3(8) valuation)</a></li>
+        </ol>
+        <p class="caption fine">education, not tax or legal advice.</p>
+        <div class="page-end">
+          <button class="pill mark-read" type="button">mark as read</button>
+          <a class="pill primary" href="#/dilution">try the dilution calculator →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- cliff calculator -->
+    <section class="view" data-view="cliff" hidden>
+      <div class="section">
+        <p class="mono muted">calculator 01</p>
+        <h1>cliff <em>date</em></h1>
+        <p class="dek">put in your grant. you get the cliff date, what vests on it, the full schedule, and what is yours today.</p>
+      </div>
+      <div class="section calc">
+        <form id="cliff-form" class="calc-inputs" autocomplete="off" novalidate>
+          <fieldset>
+            <legend>your grant</legend>
+            <label for="c-grant">grant date (or vesting start)</label>
+            <input id="c-grant" name="grant" type="date" value="2026-04-01">
+            <label for="c-shares">total shares or options</label>
+            <input id="c-shares" name="shares" type="number" min="1" step="1" value="48000" inputmode="numeric">
+            <label for="c-months">vesting months</label>
+            <input id="c-months" name="months" type="number" min="1" step="1" value="48" inputmode="numeric">
+            <label for="c-cliff">cliff months</label>
+            <input id="c-cliff" name="cliff" type="number" min="0" step="1" value="12" inputmode="numeric">
+            <label for="c-freq">after the cliff, vests</label>
+            <select id="c-freq" name="freq">
+              <option value="1">monthly</option>
+              <option value="3">quarterly</option>
+            </select>
+          </fieldset>
+        </form>
+        <div class="calc-out">
+          <div class="panel">
+            <div class="panel-title"><span>result</span><span class="meta" id="c-today"></span></div>
+            <div class="panel-body">
+              <dl class="results">
+                <div><dt>cliff date</dt><dd class="mono" id="c-out-date">–</dd></div>
+                <div><dt>shares at cliff</dt><dd class="mono" id="c-out-cliff">–</dd></div>
+                <div><dt>vested as of today</dt><dd class="mono" id="c-out-today">–</dd></div>
+                <div><dt>fully vested on</dt><dd class="mono" id="c-out-end">–</dd></div>
+              </dl>
+              <p class="empty" id="c-empty" hidden>fill in a grant date and a share count to see the schedule.</p>
+              <div class="row"><button class="pill" type="button" id="c-copy">copy as text</button><span class="caption" id="c-copied" aria-live="polite"></span></div>
+            </div>
+          </div>
+          <p class="label spaced">schedule <span class="count" id="c-count"></span></p>
+          <div class="table-wrap schedule">
+            <table>
+              <thead><tr><th>#</th><th>date</th><th class="right">vests</th><th class="right">total</th><th class="right">%</th></tr></thead>
+              <tbody id="c-table"></tbody>
+            </table>
+          </div>
+          <p class="caption">shares are rounded down at each step and the last event tops up to the full grant. your plan document decides the exact rounding.</p>
+        </div>
+      </div>
+      <div class="section">
+        <p class="caption fine">education, not tax or legal advice. <a href="#/lesson-2">read lesson 02 on cliffs and triggers →</a></p>
+      </div>
+    </section>
+
+    <!-- dilution calculator -->
+    <section class="view" data-view="dilution" hidden>
+      <div class="section">
+        <p class="mono muted">calculator 02</p>
+        <h1>dilution, <em>in one round</em></h1>
+        <p class="dek">put in what you own and the terms of the new round. you get your ownership before and after, and what the stake is worth at the new price.</p>
+      </div>
+      <div class="section calc">
+        <form id="dil-form" class="calc-inputs" autocomplete="off" novalidate>
+          <fieldset>
+            <legend>you and the company today</legend>
+            <label for="d-cur">currency</label>
+            <select id="d-cur" name="cur">
+              <option value="USD">us dollars</option>
+              <option value="INR">indian rupees</option>
+            </select>
+            <label for="d-own">shares you own (vested and unvested)</label>
+            <input id="d-own" name="own" type="number" min="0" step="1" value="100000" inputmode="numeric">
+            <label for="d-fd">fully diluted shares before the round</label>
+            <input id="d-fd" name="fd" type="number" min="1" step="1" value="10000000" inputmode="numeric">
+          </fieldset>
+          <fieldset>
+            <legend>the new round</legend>
+            <label for="d-pre">pre-money valuation</label>
+            <input id="d-pre" name="pre" type="number" min="0" step="any" value="40000000" inputmode="decimal">
+            <label for="d-raise">amount raised</label>
+            <input id="d-raise" name="raise" type="number" min="0" step="any" value="10000000" inputmode="decimal">
+            <label for="d-pool">option pool top-up, % of post-money</label>
+            <input id="d-pool" name="pool" type="number" min="0" max="50" step="any" value="10" inputmode="decimal">
+            <p class="caption">the new pool is usually created before the round, so it dilutes existing holders only. put 0 if there is no top-up.</p>
+          </fieldset>
+        </form>
+        <div class="calc-out">
+          <div class="panel">
+            <div class="panel-title"><span>result</span><span class="meta">one round</span></div>
+            <div class="panel-body">
+              <dl class="results">
+                <div><dt>ownership before</dt><dd class="mono" id="d-out-before">–</dd></div>
+                <div><dt>ownership after</dt><dd class="mono" id="d-out-after">–</dd></div>
+                <div><dt>new price per share</dt><dd class="mono" id="d-out-price">–</dd></div>
+                <div><dt>value of your stake at that price</dt><dd class="mono" id="d-out-value">–</dd></div>
+              </dl>
+              <p class="empty" id="d-empty" hidden>the pool top-up is larger than the pre-money can carry, so there is no valid price.</p>
+              <div class="row"><button class="pill" type="button" id="d-copy">copy as text</button><span class="caption" id="d-copied" aria-live="polite"></span></div>
+            </div>
+          </div>
+          <p class="label spaced">how it adds up</p>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td>headline price, pre-money ÷ shares before</td><td class="data right" id="d-t-headline">–</td></tr>
+                <tr><td>new pool shares</td><td class="data right" id="d-t-pool">–</td></tr>
+                <tr><td>new investor shares</td><td class="data right" id="d-t-new">–</td></tr>
+                <tr><td>fully diluted shares after</td><td class="data right" id="d-t-post">–</td></tr>
+                <tr><td>post-money valuation</td><td class="data right" id="d-t-postval">–</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption">the value is at the preferred price of the new round. your common shares are worth less; see <a href="#/lesson-3">lesson 03</a>.</p>
+        </div>
+      </div>
+      <div class="section">
+        <p class="caption fine">education, not tax or legal advice.</p>
+      </div>
+    </section>
+
+    <section class="view" data-view="notfound" hidden>
+      <div class="section">
+        <h1>nothing lives <em>here</em></h1>
+        <p class="dek">this page does not exist. <a href="#/">go back to the start</a>.</p>
+      </div>
+    </section>
+
+    </main>
+
+    <footer class="footer">
+      <ol class="sitemap">
+        <li><a href="#/">home</a></li>
+        <li><a href="#/lesson-1">lesson 01: options basics</a></li>
+        <li><a href="#/lesson-2">lesson 02: vesting, cliffs and triggers</a></li>
+        <li><a href="#/lesson-3">lesson 03: 409a versus preferred</a></li>
+        <li><a href="#/cliff">cliff date calculator</a></li>
+        <li><a href="#/dilution">dilution calculator</a></li>
+        <li><a href="https://github.com/ananyapradhan02/equity-literacy" target="_blank" rel="noopener">source and readme</a></li>
+        <li><a href="https://calendly.com/ananyapradhan/30min" target="_blank" rel="noopener">book a 30-minute call</a></li>
+        <li><a href="mailto:ananyapradhan02@gmail.com">write to ananya</a></li>
+      </ol>
+      <p class="colophon">v0.1 · 30.09.26 · set in newsreader, figtree and ibm plex mono. no analytics, everything stays in your browser. © ananya pradhan</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

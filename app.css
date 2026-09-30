@@ -1,0 +1,43 @@
+/* equity literacy: project rules only, tokens from global.css */
+
+.view[hidden] { display: none; }
+.card { position: relative; display: block; }
+.card .mono { margin: 0 0 .4em; }
+.card .read-stamp { position: absolute; top: var(--s1); right: var(--s1); }
+.card .read-stamp[hidden] { display: none; }
+
+.lesson .prose h2 { margin-bottom: var(--s1); }
+.label.spaced { margin-top: var(--s2); }
+.table-wrap { overflow-x: auto; max-width: 100%; }
+.table-wrap table { min-width: 0; }
+.caption { max-width: 48em; }
+.caption.fine { margin: var(--s1) 0 0; }
+
+.recall .q { padding-block: var(--s1); border-bottom: 1px solid var(--rule); }
+.recall .q:last-child { border-bottom: 0; }
+.recall .q > .prose { margin: 0 0 .6em; }
+.why { margin-top: .8em; padding-left: 1em; border-left: 1.5px solid var(--green-mid); }
+.why p { margin: 0; }
+
+.sources { padding-left: 1.2em; margin: 0; font-size: .9rem; }
+.sources li { padding: .2em 0; }
+.sources li::marker { font-family: var(--mono); font-size: .74rem; color: var(--text-3); }
+.lesson-end .page-end { justify-content: flex-start; flex-wrap: wrap; }
+.mark-read[aria-pressed="true"]::before { content: "✓ "; }
+
+.calc { display: grid; gap: var(--s2); grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); align-items: start; }
+.calc-inputs label { margin-top: .9em; }
+.calc-inputs label:first-of-type { margin-top: 0; }
+.calc-inputs fieldset .caption { margin: .6em 0 0; }
+.results { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--s1) var(--s2); margin: 0 0 var(--s2); }
+.results dt { font-size: .8rem; color: var(--text-2); text-transform: lowercase; }
+.results dd { margin: .2em 0 0; font-size: 1.4rem; }
+.schedule { max-height: 28rem; overflow-y: auto; border-top: 1px solid var(--rule); }
+.schedule tr.past td { color: var(--text-3); }
+.schedule tr.now td { background: var(--tint-1); }
+
+@media (max-width: 760px) {
+  .calc { grid-template-columns: minmax(0, 1fr); }
+  .topbar nav { gap: var(--s1); }
+  .sitemap { columns: 1; }
+}
